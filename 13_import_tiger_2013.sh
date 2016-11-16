@@ -11,8 +11,8 @@ do
     unzip -q -n $i -d `dirname $i`
 done
 
-psql -h $PGHOST -d census -c "DROP SCHEMA IF EXISTS tiger2013; CREATE SCHEMA tiger2013;"
-psql -h $PGHOST -d census -c "ALTER SCHEMA tiger2013 OWNER TO census;"
+sudo -u postgres psql -d census -c "DROP SCHEMA IF EXISTS tiger2013; CREATE SCHEMA tiger2013;"
+sudo -u postgres psql -d census -c "ALTER SCHEMA tiger2013 OWNER TO census;"
 
 for i in CBSA CD COUNTY CSA PLACE STATE ELSD SCSD ZCTA5 COUSUB PUMA SLDL SLDU AIANNH AITS ANRC BG CNECTA CONCITY METDIV NECTA NECTADIV SUBMCD TBG TTRACT TABBLOCK TRACT UAC UNSD VTD
 do
